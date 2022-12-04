@@ -37,7 +37,7 @@ TR data can be obtained from
 
 AP dataset can be fetched on the website: https://users.monash.edu/~andrease/Downloads.htm.
 
- #### Results
+### Results
 
 The folder results in this repository includes the exact objective (solution) and  running time of all problems test in the paper, with the proposed and benchmark algorithms.
 
