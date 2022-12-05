@@ -33,11 +33,13 @@ In addition to synthetic data, we use standard datasets derived from real-world 
 
 CAB data is provided by https://www.researchgate.net/project/Studies-in-Hub-Location-and-Network-Design;
 
-TR data can be obtained from 
+TR data can be obtained from the following paper: 
+
+> Çetiner, S. (2003). An iterative hub location and routing problem for postal delivery systems (Doctoral dissertation, METU).
 
 AP dataset can be fetched on the website: https://users.monash.edu/~andrease/Downloads.htm.
 
-### Results
+ #### Results
 
 The folder results in this repository includes the exact objective (solution) and  running time of all problems test in the paper, with the proposed and benchmark algorithms.
 
