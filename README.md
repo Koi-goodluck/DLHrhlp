@@ -1,15 +1,19 @@
-The data and results in the repository are complete as reported in the research "Machine Learning Augmented Approaches for Hub Location Problems". The paper is under review now.
+### Machine Learning Augmented Approaches for Hub Location Problems
 
-### Data
+This repository contains  a TensorFlow implementation of DLHr,  complete data and results as reported in the research "Machine Learning Augmented Approaches for Hub Location Problems".
+
+The paper is under review now.
+
+### data
 
 The folder data in this repository includes synthetic networks used in our experiments. All synthetic networks are created according to the method described in the paper. The folder data consists of three folders as:
 
-- SYN25：
+- **SYN25：**
   - training set: 10,000 synthetic networks with 25 nodes, generated with different random seeds.
   - validation set: 500 synthetic networks with 25 nodes, generated with different random seeds.
   - test set: 500 synthetic networks with 25 nodes,  generated with different random seeds.
-- SYN100: 10 synthetic networks with 100 nodes, which are used to test DL-GVNS.
-- SYN200: 10 synthetic networks with 200 nodes, which are used to test DL-GVNS.
+- **SYN100:** 10 synthetic networks with 100 nodes, which are used to test DL-GVNS.
+- **SYN200:** 10 synthetic networks with 200 nodes, which are used to test DL-GVNS.
 
 In each synthetic dataset like SYN100, there are four files named :
 
@@ -39,14 +43,47 @@ TR data can be obtained from the following paper:
 
 AP dataset can be fetched on the website: https://users.monash.edu/~andrease/Downloads.htm.
 
- #### Results
+#### DLHr
+
+The folder DLHr includes source codes for training and testing the model on the node ranking task.
+
+- **Dependencies**
+  - Python>=3.7.4
+  - Tensorflow==1.15.0
+  - numpy
+  - pandas
+  - scipy
+
+- **Training**
+
+All important parameters for training are set in `congfig.Config`.  Please run with:
+
+```python
+# train the DLHr
+python src/learn.py
+# or
+python src/learn.py --arg_name=value
+```
+
+- **Test**
+
+You can test on both synthetic networks and real-world datasets to rank nodes with the saved model. Please run with:
+
+```python
+# test on both synthetic and real-world datasets 
+python src/test.py
+```
+
+Reference: We implement our codes on the basis of  https://github.com/FFrankyy/DrBC.
+
+ #### results
 
 The folder results in this repository includes the exact objective (solution) and  running time of all problems test in the paper, with the proposed and benchmark algorithms.
 
-- DL-CBS
+- **DL-CBS**
   - (DL)CBS_results.csv:  solutions and running time of 224 problems, solved with nine approaches: RCBS, ARCBS, IRCBS, IARCBS, DL-RCBS, DL-ARCBS, DL-IRCBS, DL-IARCBS. The limitation time of AP200 is seven hours while four hours for other datasets.
   - ap_24h_DL_IARCBS.csv: solutions and running time of AP200 , solved with IARCBS, DL-IARCBS and CPLEX. It is noted that the limitation time is 24 hours.
-- DL-GVNS
+- **DL-GVNS**
   - (DL)GVNS_synthetic.csv: comparison of DL-GVNS and Mix-GVNS, on 10 synthetic networks with 100 nodes and 10 synthetic networks with 200 nodes.
   - (DL)GVNS_real_world.csv: comparison of DL-GVNS and Mix-GVNS on real-world datasets.
   - compare_with_GA_TS.csv: comparison of DL-GVNS, genetic algorithm (GA), tabu search (TS) and CPLEX on real-word datasets.
